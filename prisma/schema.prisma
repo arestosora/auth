@@ -14,3 +14,10 @@ model User {
   name String?
   password String?
 }
+
+model Item {
+  id Int @default(autoincrement())
+  name String 
+  ShopName String
+  ItemCode String @unique
+}
