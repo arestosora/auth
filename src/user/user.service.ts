@@ -2,9 +2,10 @@ import { ConflictException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma.service';
 import { CreateUserDto } from './dto/user.dto';
 import { hash } from 'bcrypt';
+import { IUser } from './interfaces/user.interfaces';
 
 @Injectable()
-export class UserService {
+export class UserService implements IUser{
     constructor(private prisma: PrismaService){ }
 
     public async create(dto: CreateUserDto){

@@ -11,7 +11,7 @@ export class AuthController {
     constructor(private userService: UserService, private authService: AuthService){}
 
     @Post('register')
-    public async registerUser(@Body()dto:CreateUserDto){
+    public async registerUser(@Body() dto:CreateUserDto){
         return this.userService.create(dto);
     }
 
@@ -22,7 +22,7 @@ export class AuthController {
 
     @UseGuards(RefreshJwtGuard)
     @Post('refresh')
-    public async refreshToken(@Request() req){
+    public async refreshToken(@Request() req:any){
         return await this.authService.refreshToken(req.user)
     }
 }
